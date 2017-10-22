@@ -2,9 +2,13 @@
 title: Doggie's first game
 layout: code
 blocks: true
+refs: ['feed', 'tap']
+thumb: 'dognose'
+codeLevel: 0
+codeOrder: 1
 mission: >
   A very simple dog game: whenever the dog <code>taps</code> the blue screen, the game <code>feeds</code> it a treat. Click the play button to start the simulation, then click on the blue part of the screen to simulate nose-taps!<br>
-  "Learn More" will tell you how to change the game, and how to upload games to the Doggie And Me app.
+  "Learn More" will tell you how to change the game, and how to deploy games to the Doggie And Me app.
 instructions:
   - title: The code of the game
     mission: >
@@ -14,14 +18,11 @@ instructions:
   - title: Changing the code
     mission: >
       If you add <code>vibrate()</code> directly under <code>feed()</code>, then the game will tell your tablet or phone to vibrate right after dispensing a treat!
-      (Though of course, that only works when the game is actually running on a phone or tablet - in the playground, it'll just tell you to pretend it vibrated)<br>
+      (Though in the playground, it'll just tell you to pretend it vibrated)<br>
       You can add code by dragging it out of the palette in block mode, or just by typing in text mode.
-  - title: Uploading the game
+  - title: Deploying the game
     mission: >
       That doesn't actually work yet, sorry.
-thumb: 'dognose'
-codeLevel: 0
-codeOrder: 1
 code: |
   tap ->
     feed()

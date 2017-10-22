@@ -3,22 +3,25 @@
 // ~~~ Fake connections ~~~
 
 post = function(message) {
-  debug(message); // TODO: remove
-  if(["feed", "vibrate"].includes(message.type)){
-    write(message.type+'!');
+  if(message.type === "feed") {
+    debug('feed the dog! (after '+roundData[round-1].duration/1000+' seconds)')
+  }
+  if(message.type === "vibrate") {
+    debug('bz'+'z'.repeat(random(10))+'!')
   }
 };
 
 // ~~~ API ~~~
 
-// TODO: just use click for tap in the composer.
+// just use click for tap in the composer. touchstart doesn't work - not touch device?..
+// TODO: why, and should I care?
 
 tap = function (fn) {
   click(fn);
 };
 
 $.fn.tap = function (fn) {
-  this.on('touchstart', fn);
+  this.click(fn);
 };
 
 // set size of a turtle - works with the default turtle and (hopefully) with any jquery object.
@@ -34,8 +37,8 @@ endRound = function() {
 
 //  ~~ Communicating with app ~~
 feed = function() {
-  post({type:'feed'});
   finishRound();
+  post({type:'feed'});
 };
 
 vibrate = function() {
@@ -173,6 +176,6 @@ DifficultyPicker.prototype.pick = function() {
 };
 
 // ~~~ some set-up ~~~
-
+startNewRound();
 document.body.style.backgroundColor = "cadetblue";
 ht()

@@ -67,9 +67,15 @@ function fixbase() {
   }
   $('base').attr('href', "BASEURL");
 }
+
 var fixbasescript =
   fixbase.toString().replace('BASEURL', location.href) + "\nfixbase();"
+
 setTimeout(function() {
-  pce.beginLoad({setup: [ {code: fixbasescript, type: 'text/javascript'} ]});
+  pce.beginLoad({setup: [
+    {code: fixbasescript, type: 'text/javascript'},
+    {src: '/scripts/doglib.js', type: 'text/javascript'}
+  ]});
 }, 1000);
+
 </script>
