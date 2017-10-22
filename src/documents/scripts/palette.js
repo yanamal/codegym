@@ -13,7 +13,7 @@ var distances = ['25', '50', '100', '200'],
 defaultPalette = { 
   blocks: [
     {
-      name: 'Doggies',
+      name: 'Dog Stuff',
       color: 'red',
       blocks:[
         {
