@@ -12,30 +12,30 @@ docpadConfig = {
     # Specify some site properties
     site:
       # The production url of our website
-      url: "http://gym.pencilcode.net"
+      url: "http://doggieand.me"
 
       # Here are some old site urls that you would like to redirect from
       oldUrls: [
       ]
 
       # The default title of our website
-      title: "Pencil Code Gym"
+      title: "Doggie And Me Playground"
 
       # The website description (for SEO)
       description: """
-        An interactive sandbox for learning how to code on the web.
+        An interactive sandbox for writing simple games for dogs.
         """
 
       # The website keywords (for SEO) separated by commas
       keywords: """
-        education, code, computer science, coffeescript, turtle, music, animation, interactive fiction
+        education, code, computer science, coffeescript, turtle, dogs, game, doggieandme
         """
 
       # The website author's name
-      author: "Pencil Code"
+      author: "Yana Malysheva"
 
       # The website author's email
-      email: "info@pencilcode.net"
+      email: "kuziavra@gmail.com"
 
       # Styles
       styles: [
