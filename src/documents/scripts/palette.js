@@ -17,6 +17,14 @@ defaultPalette = {
       color: 'red',
       blocks:[
         {
+          block: "feed()",
+          title: 'Feed the doggie! Trigger treat dispensing.'
+        },
+        {
+          block: "vibrate()",
+          title: 'Vibrate the device for half a second'
+        },
+        {
           block: "tap ->\n  ``",
           title: 'Do something when the screen is touched',
           color: 'orange'
@@ -24,14 +32,6 @@ defaultPalette = {
         {
           block: "turtle.tap ->\n  ``",
           title: 'Do something when the turtle is touched'
-        },
-        {
-          block: "feed()",
-          title: 'Feed the doggie! Trigger treat dispensing.'
-        },
-        {
-          block: "vibrate()",
-          title: 'Vibrate the device for half a second'
         },
         {
           block: "onRoundStart ->\n  ``",

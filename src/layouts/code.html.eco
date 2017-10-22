@@ -25,7 +25,7 @@ layout: framed
   <a class="right carousel-control" href="#instructions" data-slide="next"><span class="glyphicon glyphicon-chevron-right" style="right:5px;left:inherit"></span></a>
 
 <% if @document.instructions: %>
-<div id="more" class="btn btn-default topright">More Ideas&nbsp;
+<div id="more" class="btn btn-default topright">Learn More&nbsp;
 <span class="glyphicon glyphicon-circle-arrow-right"></span></div>
 <% end %>
 </div>
