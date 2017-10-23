@@ -1,0 +1,33 @@
+---
+title: Turtle Tap: Difficulty
+layout: code
+blocks: true
+refs: ['DifficultyPicker','onRoundStart','moveto','random','st','feed','tap','setSize']
+thumb: 'turtle3'
+codeLevel: 1
+codeOrder: 3
+mission: >
+  Let's bring the difficulty up a notch - both for the dog and the programmer! There are 3 new things happening in this version: 
+  We made a <code>new DifficultyPicker</code> and we called it <code>sizePicker</code>. Then, <code>onRoundStart</code> (so each round), 
+  we use the DifficultyPicker to <code>pick</code> a new size.<br>
+  <em>Hint:</em> is the code too long? try switching from blocks mode to text mode.
+instructions:
+  - title: onRoundStart
+    mission: >
+      Everything inside <code>onRoundStart</code> will happen each time a new round starts - so all the set-up for a new round of the game should go here.<br>
+      Try moving the <code>moveto random position</code> line inside <code>onRoundStart</code> - can you tell what changes in the way the game works?
+  - title: DifficultyPicker
+    mission: >
+      <code>DifficultyPicker</code> is magic! So hopefully it's worth the extra complexity. 
+      It will automatically pick a difficulty setting based on how well the dog did the previous round. You always need two parts to make a DifficultyPicker: the declaration, where you tell it the range of numbers to pick from, 
+      and the actual picking, which should usually be inside <code>onRoundStart</code>, to pick a new difficulty level each round.
+      In this example, <code>sizePicker</code> will pick a turtle size between 20 (easiest) and 1 (hardest). The turtle size will use the difficulty setting because we used <code>sizePicker.pick</code> to <code>setSize</code>.
+code: |
+  st()
+  sizePicker = new DifficultyPicker(20, 1)
+  onRoundStart ->
+    setSize sizePicker.pick()
+  turtle.tap ->
+    feed()
+    moveto random position
+---

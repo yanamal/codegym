@@ -5,6 +5,7 @@ layout: reference
 tags: ['tap']
 section: doggie
 refOrder: 3
+doglib: true
 ---
 All the commands that are "inside" <b>tap</b> will happen each time the screen is tapped.
 

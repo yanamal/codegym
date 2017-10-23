@@ -6,7 +6,7 @@ section: animation
 refOrder: 2
 ---
 
-`do st` will hide the turtle
+`do st` will show the turtle
 
 <pre data-after='do ht&#13;pen red&#13;bk 200' class="jumbo">
 do st

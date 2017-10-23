@@ -1,0 +1,18 @@
+---
+title: Turtle Tap: Move
+layout: code
+blocks: true
+refs: ['moveto','random','st','feed','tap','setSize']
+thumb: 'turtle2'
+codeLevel: 1
+codeOrder: 2
+mission: >
+  We can make the turtle move! <code>moveto random position</code> moves the turtle to a random place on the screen. 
+  If we do it inside <code>turtle.tap</code>, the turtle will move each time we tap it!
+code: |
+  st()
+  setSize 10
+  turtle.tap ->
+    feed()
+    moveto random position
+---

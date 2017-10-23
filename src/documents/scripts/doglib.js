@@ -4,7 +4,11 @@
 
 post = function(message) {
   if(message.type === "feed") {
-    debug('feed the dog! (after '+roundData[round-1].duration/1000+' seconds)')
+    var msg = 'feed the dog! '
+    if(roundData[round-1]) {
+      msg += ' (after '+roundData[round-1].duration/1000+' seconds)';
+    }
+    debug(msg)
   }
   if(message.type === "vibrate") {
     debug('bz'+'z'.repeat(random(10))+'!')
@@ -176,6 +180,7 @@ DifficultyPicker.prototype.pick = function() {
 };
 
 // ~~~ some set-up ~~~
-startNewRound();
 document.body.style.backgroundColor = "cadetblue";
-ht()
+ht();
+setTimeout(startNewRound, 10);
+

@@ -20,6 +20,28 @@ layout: framed
 </style>
 <script src="//pencilcode.net/lib/pencilcodeembed.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/tooltipster/3.0.5/js/jquery.tooltipster.min.js"></script>
+
+<script>
+function fixbase() {
+  if ($('base').length == 0) {
+    $(document.head).append('<base>');
+  }
+  $('base').attr('href', "BASEURL");
+}
+var fixbasescript =
+  fixbase.toString().replace('BASEURL', location.href) + "\nfixbase();"
+
+setupScripts = [
+  {code: fixbasescript, type: 'text/javascript'},
+]
+</script>
+<% if @document.doglib: %>
+<script>
+console.log('here')
+setupScripts.push({src: '/scripts/doglib.js', type: 'text/javascript'});
+</script>
+<% end %>
+
 <script>
 var cf = document.getElementById('codeframe'),
     code = cf.innerHTML,
@@ -61,21 +83,10 @@ pce.on('load', function() {
   }
   else { $('.jumbo').eq(0).click(); }
 });
-function fixbase() {
-  if ($('base').length == 0) {
-    $(document.head).append('<base>');
-  }
-  $('base').attr('href', "BASEURL");
-}
 
-var fixbasescript =
-  fixbase.toString().replace('BASEURL', location.href) + "\nfixbase();"
-
+// TODO: only load doglib script if it's a dog-related ref?
 setTimeout(function() {
-  pce.beginLoad({setup: [
-    {code: fixbasescript, type: 'text/javascript'},
-    {src: '/scripts/doglib.js', type: 'text/javascript'}
-  ]});
+  pce.beginLoad({setup: setupScripts});
 }, 1000);
 
 </script>

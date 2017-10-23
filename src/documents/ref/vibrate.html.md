@@ -5,6 +5,7 @@ layout: reference
 tags: ['vibrate']
 section: doggie
 refOrder: 2
+doglib: true
 ---
 <b>vibrate</b> vibrates the phone or tablet that's running Doggie And Me.
 

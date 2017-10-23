@@ -164,6 +164,9 @@ defaultPalette = {
           block: '@grow 3',
           title: 'Grow the size of the turtle'
         }, {
+          block: '@setSize 3',
+          title: 'Set a new turtle size'
+        },{
           block: '@hide()',
           title: 'Hide the main turtle'
         }, {
@@ -419,6 +422,7 @@ defaultPalette = {
     'endRound': {color: 'red'},
     'DifficultyPicker': {color: 'orange'},
     '*.pick': {color: 'orange'},
+    '?.setSize': {color: 'red'},
     // Default Pencil Code functions starting here
     '?.fd': {color: 'lightblue', dropdown: [distances]},
     '?.bk': {color: 'lightblue', dropdown: [distances]},

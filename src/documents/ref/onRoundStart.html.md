@@ -5,6 +5,7 @@ layout: reference
 tags: ['round']
 section: doggie
 refOrder: 4
+doglib: true
 ---
 Our dog games are split up into <b>rounds</b>: each time the dog gets a treat, we start a new round of the game.
 

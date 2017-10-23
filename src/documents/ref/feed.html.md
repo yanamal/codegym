@@ -5,6 +5,7 @@ layout: reference
 tags: ['feed']
 section: doggie
 refOrder: 1
+doglib: true
 ---
 <b>feed</b> gives the dog a treat!
 

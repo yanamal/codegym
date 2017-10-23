@@ -1,0 +1,24 @@
+---
+title: Turtle Tap
+layout: code
+blocks: true
+refs: ['st','feed','tap','setSize','comments']
+thumb: 'turtle1'
+codeLevel: 1
+codeOrder: 1
+mission: >
+  Did you know that there's always a <code>turtle</code> hiding in your game?
+  We can use <code>st()</code> to Show Turtle. Then we can listen for taps on the turtle, and only feed when the turtle is tapped - not the screen around it.
+instructions:
+  - title: Bigger Turtle
+    mission: >
+      The turtle is kind of small! We can make it bigger by using <code>setSize 5</code> (or even bigger than 5!)
+  - title: Why Turtles?
+    mission: >
+      <a href='https://en.wikipedia.org/wiki/Turtle_(robot)' target='_blank'>Turtle robots</a> and <a href='https://en.wikipedia.org/wiki/Turtle_graphics' target='_blank'>Turtle graphics</a> are classic ways of teaching people how to program! Turtles give us a fun and easy way to draw and move things on the screen. We can move turtles around, make them draw, ask them what they are touching, and more!
+code: |
+  # this is a comment - it does nothing
+  st() # this shows the turtle
+  turtle.tap ->
+    feed()
+---
