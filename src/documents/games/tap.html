@@ -22,7 +22,9 @@ instructions:
       You can add code by dragging it out of the palette in block mode, or just by typing in text mode.
   - title: Deploying the game
     mission: >
-      That doesn't actually work yet, sorry.
+      To deploy the current game to your Doggie And Me app, first click the <span class="glyphicon glyphicon-qrcode"></span> button below. 
+      After a second, you'll see a QR code (it looks kind of like that button). Then go to the "Add Game" section in your app, and scan the code. The app should load your game!<br>
+      <em>In case you're wondering:</em> the deploy button creates a new <a href="https://help.github.com/articles/about-gists/#secret-gists">secret anonymous gist</a>, and the QR code is just a link for the app to know where to download the code!
 code: |
   tap ->
     feed()

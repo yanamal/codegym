@@ -49,7 +49,9 @@ docpadConfig = {
         "//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"
         "/vendor/twitter-bootstrap/dist/js/bootstrap.min.js"
         "/scripts/script.js"
-        "/scripts/palette.js"
+        # TODO: Do I need to include this globally to be able to use them in 1-2 places?..
+        "/scripts/palette.js" 
+        "/vendor/jquery-qrcode/jquery.qrcode.min.js"
       ]
 
     # -----------------------------

@@ -24,7 +24,7 @@ instructions:
       In this example, <code>sizePicker</code> will pick a turtle size between 20 (easiest) and 1 (hardest). The turtle size will use the difficulty setting because we used <code>sizePicker.pick</code> to <code>setSize</code>.
 code: |
   st()
-  sizePicker = new DifficultyPicker(20, 1)
+  sizePicker = new DifficultyPicker 20, 1
   onRoundStart ->
     setSize sizePicker.pick()
   turtle.tap ->

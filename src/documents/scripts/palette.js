@@ -42,8 +42,8 @@ defaultPalette = {
           title: 'End this round of the game without feeding the doggie'
         },
         {
-          block: "new DifficultyPicker(1,20)",
-          expansion: "picker = new DifficultyPicker(1, 20)\nonRoundStart ->\n  x = picker.pick()",
+          block: "new DifficultyPicker 1, 50",
+          expansion: "picker = new DifficultyPicker 1, 50\nonRoundStart ->\n  x = picker.pick()",
           title: 'Make a new difficulty picker, with 1=easiest and 50=hardest'
         },
         {

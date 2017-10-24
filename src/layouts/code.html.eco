@@ -52,11 +52,36 @@ layout: framed
 <% end %>
 <% if @document.refs: %>
 <span class="btn"><a target="reference" style="color:inherit;text-decoration:inherit" href="/ref/reference.html">Reference:&nbsp;</a></span>
-<!-- TODO: add custom "upload" button here -->
-<div id="save" title="Save to your own website" class="btn btn-default pull-right gap-right"><span class="pencil-icon"></span></div>
+<!-- TODO: add custom "deploy" button here -->
+<!-- TODO: buttons only rendered within reference if - no buttons when no reference? -->
+<div id="deploy" title="Deploy to Doggie And Me" class="btn btn-default pull-right gap-right" data-toggle="modal" data-target="#qrModal"><span class="glyphicon glyphicon-qrcode"></span> Deploy!</div>
 <% for ref in (@document.refs or []): %><a target="reference" class="btn btn-default gap-right" href="/ref/<%= ref.replace(/\s/g, '_') %>.html"><%=ref%></a><% end %>
 <% end %>
 </center>
+</div>
+
+
+<div id="qrModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Scan the code!</h4>
+      </div>
+      <div class="modal-body">
+        <span id="qrcode"></span>
+        <p>Scan this QR code with the Doggie And Me app to add the game to the app!</p>
+        <p>You can also access the gist we just created <span id="gisturl"></span> </p>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 </div> <!-- end flex container -->
@@ -184,8 +209,6 @@ if (navigator.userAgent.indexOf('Trident') != -1) {
   ]});
 }
 
-console.log(defaultPalette.knownFunctions);
-
 pce.on('load', function() {
   pce.setBlockOptions(defaultPalette.blocks, {functions: defaultPalette.knownFunctions});
 });
@@ -215,6 +238,38 @@ var defaultname = window.location.pathname.replace(/^.*\/|\.[^\/\.]*$/g, '') +
 $('#save').click(function() {
   $('#tlayer').hide();
   pce.save(defaultname);
+});
+
+
+$('#deploy').click(function() {
+
+  $('#qrcode').html('Loading, hang on...')
+  $('#gisturl').html('')
+
+  $.ajax({
+    type: 'POST',
+    url: "https://api.github.com/gists",
+    data: JSON.stringify({
+      "description":"A Doggie And Me game",
+      "public":false,
+      "files":{
+        "game.coffee":{
+          "content":loadStorage()
+        }
+      }
+    }),
+    error: function(e) {
+      console.log(e);
+      $('#qrcode').html('<h2>Oops! something went wrong</h2>')
+    },
+    success: function(e) {
+      $('#qrcode').html('')
+      $('#qrcode').qrcode(e.files['game.coffee'].raw_url)
+      $('#gisturl').html('<a href="'+e.html_url+'"  target="_blank">here</a>')
+    },
+    dataType: "json",
+    contentType: "application/json"
+  });
 });
 
 $('.btn[title]').tooltip();

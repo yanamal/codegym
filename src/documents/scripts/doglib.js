@@ -17,6 +17,44 @@ post = function(message) {
 
 // ~~~ API ~~~
 
+// set size of a turtle - works with the default turtle and (hopefully) with any jquery object.
+$.fn.setSize = function(newSize) {
+  this.animate({turtleScale: newSize}, 0); // TODO: use speed?..
+};
+
+setSize = function(newSize) {
+  turtle.setSize(newSize);
+};
+
+// TODO: add logic from here down to tap() to DnMe app.
+lasttap = $("<div>").css({
+    display: 'inline-block',
+    verticalAlign: 'top',
+    textAlign: 'center',
+    height: '1.2em',
+    width: '1.2em',
+    maxWidth: '1.2em',
+    overflow: 'hidden' }).appendTo($("body"));
+lasttap.speed(Infinity);
+// touches() doesn't work with invisible turtles.
+//lasttap.setSize(0.1); // TODO: why does this animate at speed infinity? 
+click((e)=>{
+  lasttap.moveto(e);
+})
+
+totalWidth = document.body ? $(document).width() : document.width;
+totalHeight = document.body ? $(document).height() : document.height;
+
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+}
+
 // just use click for tap in the composer. touchstart doesn't work - not touch device?..
 // TODO: why, and should I care?
 
@@ -26,11 +64,6 @@ tap = function (fn) {
 
 $.fn.tap = function (fn) {
   this.click(fn);
-};
-
-// set size of a turtle - works with the default turtle and (hopefully) with any jquery object.
-setSize = function(newSize) {
-  this.animate({turtleScale: newSize});
 };
 
 // end round - the implication is that it ended without success/feeding.

@@ -1,0 +1,52 @@
+---
+title: Blue Tap
+layout: code
+blocks: false
+refs: ['box', 'cg', 'if', 'for', 'variables', 'arrays', 'touches', 'lasttap', 'shuffle']
+codeLevel: 2
+codeOrder: 1
+thumb: touchblue
+mission: >
+  <b>Whoa!</b> lots of stuff going on here: loops, arrays, ifs, variables... It's OK if this is all new to you - just because you don't yet understand everything in a program, doesn't mean you can't customize it!<br>
+  The "Learn More" sections will give you some ideas for changing this game.<br>
+  I'll try to add a more gentle introduction to all these things later, but for now, you can read some of the references below, or check out <a href='http://gym.pencilcode.net'>Pencil Code Gym</a> for non-dog-centric tutorials!
+instructions:
+  - title: Speed it up!
+    mission: >
+      In this game, the dog is supposed to tap on the blue rectangle. The turtle draws 4 new rectangles at the beginning of each round. But the turtle is kind of slow - plus, we don't really need to see it for this game!
+      Try removing <code>st()</code> (on line 2), and in its place, putting  <code>speed 100</code> or even <code>speed Infinity</code>!
+  - title: Change the colors!
+    mission: >
+      On line 12, we set <code>boxColors</code> to be an <em>array</em> of four colors. If you change the colors in the array, the turtle will draw your new colors! 
+      <em>Note: </em>if you use less than 4 colors, the turtle will get confused. If you use more than 4, it will only use the first 4. Try it and see!<br>
+      You can also change which color is the "correct" one by changing which color we use in the <code>if</code> on the second-to-last line.
+  - title: Dogs and colors
+    mission: >
+      Dogs are red-green colorblind (or something like it). They are pretty good at blue and yellow, though!
+code: |
+  # show the turtle, so we know what it's doing:
+  st()
+
+  # define some useful numbers and colors:
+  boxSize = max(totalWidth, totalHeight)/2
+  boxCenters = [
+    [-boxSize/2, -boxSize/2]
+    [-boxSize/2, boxSize/2]
+    [boxSize/2, boxSize/2]
+    [boxSize/2, -boxSize/2]
+  ]
+  boxColors = [blue, yellow, white, black]
+
+  # on round start, randomize box position and draw 4 boxes
+  onRoundStart ->
+    cg() # clear graphics
+    shuffle boxCenters # randomize the order of the box centers
+    for i in [0..3] # for each of the 4 box centers/colors
+      moveto boxCenters[i] # move to the current center
+      box boxColors[i], boxSize # draw a box of the current color
+    
+  # on tap, see if the tap was on blue. if yes, feed the dog!
+  tap ->
+    if lasttap.touches blue
+      feed()
+---
