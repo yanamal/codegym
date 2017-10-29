@@ -13,6 +13,9 @@ post = function(message) {
   if(message.type === "vibrate") {
     debug('bz'+'z'.repeat(random(10))+'!')
   }
+  if(message.type === "difficulty") {
+    debug('Picked difficulty: ' + message.payload.diff+' ('+message.payload.action+')')
+  }
 };
 
 // ~~~ API ~~~
@@ -145,9 +148,10 @@ function DifficultyPicker(easiest, hardest) {
 
 // helper function to set difficulty for this round, and communicate it to the parent app.
 // TODO: private?
-DifficultyPicker.prototype.setDifficulty = function(diff) {
+// action is a human-readable explanation of what is happening with the difficulty 
+DifficultyPicker.prototype.setDifficulty = function(diff, action='') {
   this.roundDifficulties[round] = diff;
-  post({type:'difficulty', payload: diff});
+  post({type:'difficulty', payload: {diff, action}});
   return diff;
 };
 
@@ -183,7 +187,7 @@ DifficultyPicker.prototype.pick = function() {
     this.baselineRoundsLeft--;
     this.baselineRoundsDone++;
 
-    return this.setDifficulty(this.easiest); // TODO: this happens n+1 times?
+    return this.setDifficulty(this.easiest, 'calibrating'); // TODO: this happens n+1 times?
   }
 
   // fallthrough - adjust difficulty by comparing prev. round's timing to baseline 
@@ -197,17 +201,17 @@ DifficultyPicker.prototype.pick = function() {
     if(baselineFraction <= 1) {
       // too hard
       difficultyFraction = (this.roundDifficulties[prevRound] - this.easiest) * baselineFraction
-      return this.setDifficulty(this.easiest + difficultyFraction);
+      return this.setDifficulty(this.easiest + difficultyFraction, 'easier');
     } else {
       // too easy
       difficultyFraction = (this.roundDifficulties[prevRound] - this.hardest) / baselineFraction;
-      return this.setDifficulty(this.hardest + difficultyFraction);
+      return this.setDifficulty(this.hardest + difficultyFraction, 'harder');
     }
     // TODO: randomness?
     // TODO: less naive calculation: rely less on easiest/hardest, don't assume difficulty is linear between them.
   } 
 
-  return this.setDifficulty(this.easiest);// most fallthrough - not enough data (i.e. no prevround)
+  return this.setDifficulty(this.easiest, 'not enough data');// most fallthrough - not enough data (i.e. no prevround)
 
 };
 
