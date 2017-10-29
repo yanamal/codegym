@@ -53,12 +53,28 @@ defaultPalette = {
       ]
     },
     {
-      name: 'Move',
+      name: 'Turtle Actions',
       color: 'lightblue',
       blocks: [
         {
+          block: '@st()',
+          title: 'Show turtle'
+        },
+        {
           block: '@fd 100',
           title: 'Move forward'
+        }, {
+          block: '@box yellow, 50',
+          title: 'Make a square'
+        }, {
+          block: '@dot green, 50',
+          title: 'Make a dot'
+        }, {
+          block: '@moveto 100, 50',
+          title: 'Move to coordinates'
+        }, {
+          block: '@setSize 3',
+          title: 'Set a new turtle size'
         }, {
           block: '@rt 90',
           title: 'Turn right'
@@ -69,54 +85,38 @@ defaultPalette = {
           block: '@bk 100',
           title: 'Move backward'
         }, {
-          block: '@rt 180, 100',
-          title: 'Make a wide right arc'
-        }, {
-          block: '@lt 180, 100',
-          title: 'Make a wide left arc'
-        }, {
           block: '@speed 10',
           title: 'Set the speed of the turtle'
         }, {
           block: '@speed Infinity',
           title: 'Use infinite speed'
         }, {
-          block: '@home()',
-          title: 'Jump to the origin, turned up'
+          block: '@wear \'lightgreen\'',
+          title: 'Change the turtle\'s shell color'
+        }
+      ]
+    }, {
+      name: 'Text',
+      color: 'pink',
+      blocks: [
+        {
+          block: 'write \'Hello.\'',
+          title: 'Write text in the document'
         }, {
-          block: '@turnto 270',
-          title: 'Turn to an absolute direction'
+          block: 'debug x',
+          title: 'Log an object to debug'
         }, {
-          block: '@moveto 100, 50',
-          title: 'Move to coordinates'
+          block: 'type \'zz*(-.-)*zz\'',
+          title: 'Typewrite text in the document'
         }, {
-          block: '@movexy 30, 20',
-          title: 'Move by changing x and y'
-        }, {
-          block: '@jumpto 100, 50',
-          title: 'Jump to coordinates without drawing'
-        }, {
-          block: '@jumpxy 30, 20',
-          title: 'Jump changing x and y without drawing'
-        }, {
-          block: '@pause 5',
-          title: 'Do not move for five seconds'
+          block: '@label \'spot\'',
+          title: 'Write text at the turtle'
         }
       ]
     }, {
       name: 'Control',
       color: 'orange',
-      blocks: [
-        {
-          block: 'for [1..3]\n  ``',
-          title: 'Do something multiple times'
-        }, {
-          block: 'for x in [0...10]\n  ``',
-          title: 'Repeat something while counting up x'
-        }, {
-          block: 'while `` < ``\n  ``',
-          title: '  Repeat while a condition is true'
-        }, {
+      blocks: [ {
           block: 'if `` is ``\n  ``',
           title: 'Do something only if a condition is true'
         }, {
@@ -128,65 +128,14 @@ defaultPalette = {
           block: "forever 1, ->\n  ``",
           title: 'Repeat something forever at qually-spaced times'
         }, {
-          block: "button \'Click\', ->\n  ``",
-          title: 'Make a button and do something when clicked'
+          block: 'for [1..3]\n  ``',
+          title: 'Do something multiple times'
         }, {
-          block: "keydown \'X\', ->\n  ``",
-          title: 'Do something when a keyboard key is pressed'
+          block: 'for x in [0...10]\n  ``',
+          title: 'Repeat something while counting up x'
         }, {
-          block: "click (e) ->\n  ``",
-          title: 'Do something when the mouse is clicked'
-        }
-      ]
-    }, {
-      name: 'Art',
-      color: 'purple',
-      blocks: [
-        {
-          block: '@pen purple, 10',
-          title: 'Set pen color and size'
-        }, {
-          block: '@dot green, 50',
-          title: 'Make a dot'
-        }, {
-          block: '@box yellow, 50',
-          title: 'Make a square'
-        }, {
-          block: '@fill blue',
-          title: 'Fill traced shape'
-        }, {
-          block: '@wear \'apple\'',
-          title: 'Use an image for the turtle'
-        }, {
-          block: 'img \'/img/bird\'',
-          title: 'Write an image on the screen'
-        }, {
-          block: '@grow 3',
-          title: 'Grow the size of the turtle'
-        }, {
-          block: '@setSize 3',
-          title: 'Set a new turtle size'
-        },{
-          block: '@hide()',
-          title: 'Hide the main turtle'
-        }, {
-          block: '@show()',
-          title: 'Show the main turtle'
-        }, {
-          block: 'cs()',
-          title: 'Clear screen'
-        }, {
-          block: '@pu()',
-          title: 'Lift the pen up'
-        }, {
-          block: '@pd()',
-          title: 'Put the pen down'
-        }, {
-          block: '@drawon s',
-          title: 'Draw on sprite s'
-        }, {
-          block: '@drawon document',
-          title: 'Draw on the document'
+          block: 'while `` < ``\n  ``',
+          title: '  Repeat while a condition is true'
         }
       ]
     }, {
@@ -194,6 +143,18 @@ defaultPalette = {
       color: 'lightgreen',
       blocks: [
         {
+          block: 'random 6',
+          title: 'Get a random number less than n'
+        }, {
+          block: 'max ``, ``',
+          title: 'Get the larger of two numbers'
+        }, {
+          block: 'min ``, ``',
+          title: 'Get the smaller on two numbers'
+        }, {
+          block: 'shuffle([1,2,3])',
+          title: 'Randomize an array',
+        }, {
           block: 'x = 0',
           title: 'Set a variable',
           id: 'assign'
@@ -201,26 +162,6 @@ defaultPalette = {
           block: 'x += 1',
           title: 'Increase a variable',
           id: 'increment'
-        }, {
-          block: 'f = (x) ->\n  ``',
-          title: 'Define a new function',
-          id: 'funcdef'
-        }, {
-          block: 'f(x)',
-          title: 'Use a custom function',
-          id: 'funccall'
-        }, {
-          block: '`` is ``',
-          title: 'Compare two values',
-          id: 'is'
-        }, {
-          block: '`` < ``',
-          title: 'Compare two values',
-          id: 'lessthan'
-        }, {
-          block: '`` > ``',
-          title: 'Compare two values',
-          id: 'greaterthan'
         }, {
           block: '`` + ``',
           title: 'Add two numbers',
@@ -238,6 +179,18 @@ defaultPalette = {
           title: 'Divide two numbers',
           id: 'divide'
         }, {
+          block: '`` is ``',
+          title: 'Compare two values',
+          id: 'is'
+        }, {
+          block: '`` < ``',
+          title: 'Compare two values',
+          id: 'lessthan'
+        }, {
+          block: '`` > ``',
+          title: 'Compare two values',
+          id: 'greaterthan'
+        }, {
           block: '`` and ``',
           title: 'True if both are true',
           id: 'and'
@@ -249,132 +202,6 @@ defaultPalette = {
           block: 'not ``',
           title: 'True if input is false',
           id: 'not'
-        }, {
-          block: 'random 6',
-          title: 'Get a random number less than n'
-        }, {
-          block: 'round ``',
-          title: 'Round to the nearest integer'
-        }, {
-          block: 'abs ``',
-          title: 'Absolute value'
-        }, {
-          block: 'max ``, ``',
-          title: 'Get the larger of two numbers'
-        }, {
-          block: 'min ``, ``',
-          title: 'Get the smaller on two numbers'
-        }, {
-          block: 'x.match /pattern/',
-          title: 'Test if a text pattern is found in x',
-          id: 'match'
-        }
-      ]
-    }, {
-      name: 'Text',
-      color: 'pink',
-      blocks: [
-        {
-          block: 'write \'Hello.\'',
-          title: 'Write text in the document'
-        }, {
-          block: 'debug x',
-          title: 'Log an object to debug'
-        }, {
-          block: 'type \'zz*(-.-)*zz\'',
-          title: 'Typewrite text in the document'
-        }, {
-          block: 'typebox yellow',
-          title: 'Type out a colored square'
-        }, {
-          block: 'typeline()',
-          title: 'Type in a new line'
-        }, {
-          block: '@label \'spot\'',
-          title: 'Write text at the turtle'
-        }, {
-          block: "await read '?', defer x",
-          title: "Pause for input from the user"
-        }, {
-          block: "await readnum '?', defer x",
-          title: "Pause for a number from the user"
-        }, {
-          block: 'read \'?\', (x) ->\n  write x',
-          title: 'Send input from the user to a function'
-        }, {
-          block: 'readnum \'?\', (x) ->\n  write x',
-          title: 'Send a number from the user to a function'
-        }
-      ]
-    }, {
-      name: 'Sprites',
-      color: 'teal',
-      blocks: [
-        {
-          block: 't = new Turtle red',
-          title: 'Make a new turtle',
-          id: 'newturtle'
-        }, {
-          block: 's = new Sprite()',
-          title: 'Make a blank sprite',
-          id: 'newsprite'
-        }, {
-          block: 'p = new Piano()',
-          title: 'Make a visible instrument',
-          id: 'newpiano'
-        }, {
-          block: 'q = new Pencil()',
-          title: 'Make an invisible and fast drawing sprite'
-        }, {
-          block: 'if @touches x\n  ``',
-          title: 'Do something only if touching the object x'
-        }, {
-          block: 'if @inside window\n  ``',
-          title: 'Do something only if inside the window'
-        }
-      ]
-    }, {
-      name: 'Sound',
-      color: 'indigo',
-      blocks: [
-        {
-          block: '@play \'c G/G/ AG z\'',
-          title: 'Play music notes in sequence'
-        }, {
-          block: '@play \'[fA] [ecG]2\'',
-          title: 'Play notes in a chord'
-        }, {
-          block: '@tone \'B\', 2, 1',
-          title: 'Sound a note immediately',
-          id: 'toneNote'
-        }, {
-          block: '@tone \'B\', 0',
-          title: 'Silence a note immediately',
-          id: 'toneNote0'
-        }, {
-          block: '@tone 440, 2, 1',
-          title: 'Sound a frequency immediately',
-          id: 'toneHz'
-        }, {
-          block: '@tone 440, 0',
-          title: 'Silence a frequency immediately',
-          id: 'toneHz0'
-        }, {
-          block: '@silence()',
-          title: 'Silence all notes'
-        }, {
-          block: "await listen defer x",
-          title: "Pause for spoken words from the user"
-        }, {
-          block: 'listen (x) ->\n  write x',
-          title: 'Send spoken words from the user to a function'
-        }, {
-          block: '@say \'hello\'',
-          title: 'Speak a word'
-        }, {
-          block: 'new Audio(url).play()',
-          expansion: '(new Audio(\'https://upload.wikimedia.org/wikipedia/commons/1/11/06_-_Vivaldi_Summer_mvt_3_Presto_-_John_Harrison_violin.ogg\')).play()',
-          title: 'Play an audio file'
         }
       ]
     }, {
@@ -382,33 +209,17 @@ defaultPalette = {
       color: 'deeporange',
       blocks: [
         {
-          block: "forever 10, ->\n  turnto lastmouse\n  fd 2",
-          title: 'Continually move towards the last mouse position',
-          id: "foreverFollowMouse"
+          block: "tap ->\n  if lasttap.touches blue\n    feed()",
+          title: 'Check whether a blue area was tapped',
+          id: "tapBlue"
         }, {
-          block: "forever 10, ->\n  if pressed 'W'\n    fd 2",
-          title: 'Poll a key and move while it is depressed',
-          id: "foreverPollKey"
+          block: "forever 10, ->\n  turnto random(-10, 10)\n  fd 2",
+          title: 'Continually move forward, turning slightly',
+          id: "foreverBrownian"
         }, {
           block: "forever 1, ->\n  fd 25\n  if not inside window\n    stop()",
           title: 'Move once per second until not inside window',
           id: "foreverInsideWindow"
-        }, {
-          block: "click (e) ->\n  moveto e",
-          title: 'Move to a location when document is clicked',
-          id: "foreverMovetoClick"
-        }, {
-          block: "button \'Click\', ->\n  write 'clicked'",
-          title: 'Make a button and do something when clicked',
-          id: "buttonWrite"
-        }, {
-          block: "keydown \'X\', ->\n  write 'x pressed'",
-          title: 'Do something when a keyboard key is pressed',
-          id: "keydownWrite"
-        }, {
-          block: "click (e) ->\n  moveto e",
-          title: 'Move to a location when document is clicked',
-          id: "clickMove"
         }
       ]
     }
@@ -420,9 +231,11 @@ defaultPalette = {
     'feed': {color: 'red'},
     'vibrate': {color: 'red'},
     'endRound': {color: 'red'},
-    'DifficultyPicker': {color: 'orange'},
-    '*.pick': {color: 'orange'},
+    'DifficultyPicker': {color: 'deeporange'},
+    '*.pick': {color: 'deeporange'},
     '?.setSize': {color: 'red'},
+    'lasttap.touches': {color: 'red', dropdown: [colors]},
+    'shuffle': {color: 'red'},
     // Default Pencil Code functions starting here
     '?.fd': {color: 'lightblue', dropdown: [distances]},
     '?.bk': {color: 'lightblue', dropdown: [distances]},
