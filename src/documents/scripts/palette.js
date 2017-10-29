@@ -38,17 +38,17 @@ defaultPalette = {
           title: 'Do these things at the beginning of a round'
         },
         {
-          block: "endRound()",
-          title: 'End this round of the game without feeding the doggie'
-        },
-        {
           block: "new DifficultyPicker 1, 50",
-          expansion: "picker = new DifficultyPicker 1, 50\nonRoundStart ->\n  x = picker.pick()",
+          expansion: "picker = new DifficultyPicker 1, 50",
           title: 'Make a new difficulty picker, with 1=easiest and 50=hardest'
         },
         {
           block: "onRoundStart ->\n  x = picker.pick()",
           title: 'Use picker to pick a new number each time a new round starts'
+        },
+        {
+          block: "endRound()",
+          title: 'End this round of the game without feeding the doggie'
         }
       ]
     },

@@ -19,14 +19,14 @@ post = function(message) {
 
 // set size of a turtle - works with the default turtle and (hopefully) with any jquery object.
 $.fn.setSize = function(newSize) {
-  this.animate({turtleScale: newSize}, 0); // TODO: use speed?..
+  this.animate({turtleScale: newSize}); // TODO: use speed?..
 };
 
 setSize = function(newSize) {
   turtle.setSize(newSize);
 };
 
-// TODO: add logic from here down to tap() to DnMe app.
+// object which tracks the location of the last tap. (TODO: test in app)
 lasttap = $("<div>").css({
     display: 'inline-block',
     verticalAlign: 'top',
@@ -36,8 +36,7 @@ lasttap = $("<div>").css({
     maxWidth: '1.2em',
     overflow: 'hidden' }).appendTo($("body"));
 lasttap.speed(Infinity);
-// touches() doesn't work with invisible turtles.
-//lasttap.setSize(0.1); // TODO: why does this animate at speed infinity? 
+
 click((e)=>{
   lasttap.moveto(e);
 })

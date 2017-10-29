@@ -33,3 +33,11 @@ If you have a visible turtle in your game, you can also do use tap on the turtle
      >turtle.tap ->
   feed()
 </pre>
+
+------------
+<h3>More info</h3>
+On the Doggie And Me app, <code>tap</code> is a wrapper for the web standard <a href='https://developer.mozilla.org/en-US/docs/Web/Events/touchstart'>touchstart</a> event.
+
+This means that the tap location is where the dog _started_ touching the screen, and it works well for "smudgy" touches. 
+
+In this simulated environment, <code>tap</code> is actually the same as <code>click</code>, for simplicity.
