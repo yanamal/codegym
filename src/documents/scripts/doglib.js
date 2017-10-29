@@ -16,6 +16,9 @@ post = function(message) {
   if(message.type === "difficulty") {
     debug('Picked difficulty: ' + message.payload.diff+' ('+message.payload.action+')')
   }
+  if(message.type === "baselineTime") {
+    debug('Calibrated baseline round time: ' + message.payload/1000.0 + ' seconds')
+  }
 };
 
 // ~~~ API ~~~
