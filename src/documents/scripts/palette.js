@@ -213,8 +213,8 @@ defaultPalette = {
           title: 'Check whether a blue area was tapped',
           id: "tapBlue"
         }, {
-          block: "forever 10, ->\n  turnto random(-10, 10)\n  fd 2",
-          title: 'Continually move forward, turning slightly',
+          block: "forever ->\n  rt random(-10, 10)\n  fd 2",
+          title: 'Keep moving forward while turning randomly',
           id: "foreverBrownian"
         }, {
           block: "forever 1, ->\n  fd 25\n  if not inside window\n    stop()",
