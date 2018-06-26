@@ -2,9 +2,9 @@
 About This Fork
 ===============
 
-This is a fork of [Pencil Code Gym](https://github.com/PencilCode/codegym) which lets (will let) you create and upload custom games to the [Doggie And Me](https://github.com/yanamal/DoggieAndMe) app.
+This is a fork of [Pencil Code Gym](https://github.com/PencilCode/codegym) which lets you create and upload custom games to the [Doggie And Me](https://github.com/yanamal/DoggieAndMe) app.
 
-It contains (will contain) lots of examples of dog game functionality, and (eventually) the option to modify the code and send it to the app.
+It contains lots of examples of dog game functionality, and the option to modify the code and send it to the app.
 
 That app, in itself, uses [Pencil Code](http://pencilcode.net/)'s [jquery-turtle](https://github.com/PencilCode/jquery-turtle) library, with a small dog-specific API on top of it. So in theory, you should be able to do most things you can do in Pencil Code and have them Just Work in the app!
 
