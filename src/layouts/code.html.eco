@@ -73,7 +73,8 @@ layout: framed
       <div class="modal-body">
         <span id="qrcode"></span>
         <p>Scan this QR code with the Doggie And Me app to add the game to the app!</p>
-        <p>You can also access the gist we just created <span id="gisturl"></span> </p>
+        <p>You can also view your program <span id="gisturl"></span> </p>
+        <p><em>Note:</em> the QR code and the link will both expire after around 10 days</p>
 
       </div>
       <div class="modal-footer">
@@ -255,8 +256,10 @@ $('#deploy').click(function() {
       $('#qrcode').html('<h2>Oops! something went wrong</h2>');
     },
     success: function(e) {
-      $('#qrcode').html(e);
-      $('#gisturl').html('<a href="'+e.html_url+'"  target="_blank">here</a>');
+      code_url = '/snippet/'+e
+      $('#qrcode').html('');
+      $('#qrcode').qrcode(code_url);
+      $('#gisturl').html('<a href="'+code_url+'"  target="_blank">here</a>');
     },
     dataType: "json",
     contentType: "application/json"
