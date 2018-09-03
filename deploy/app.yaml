@@ -7,6 +7,9 @@ handlers:
   static_files: static/index.html
   upload: static/index.html
 
+- url: /snippet/.*
+  script: snippets.app 
+
 - url: /(.+)/
   static_files: static/\1/index.html
   upload: static/(.+)/index.html
@@ -14,3 +17,8 @@ handlers:
 - url: /(.*)
   static_files: static/\1
   upload: static/(.*)
+
+# this specifies what libraries we are using in our App Engine app:
+libraries:
+- name: flask
+  version: "0.12"
