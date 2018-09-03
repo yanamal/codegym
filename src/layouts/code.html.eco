@@ -258,7 +258,7 @@ $('#deploy').click(function() {
     success: function(e) {
       code_url = '/snippet/'+e
       $('#qrcode').html('');
-      $('#qrcode').qrcode(code_url);
+      $('#qrcode').qrcode(document.location.origin+code_url);
       $('#gisturl').html('<a href="'+code_url+'"  target="_blank">here</a>');
     },
     dataType: "json",
