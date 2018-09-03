@@ -11,10 +11,10 @@ if not production_environment:
     logging.info('debugging!')
 
 
-@app.route('/snippet/<snipid>', methods=['POST', 'GET'])
-def addSnippet(snipid):
-    submittedData = request.form
-    return request.args.get('code')
+@app.route('/snippet/new', methods=['POST'])
+def addSnippet():
+    logging.info(request.data)
+    return request.data
 
 '''
 @app.route('/snippet', methods=['GET']')

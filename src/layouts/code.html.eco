@@ -74,7 +74,7 @@ layout: framed
         <span id="qrcode"></span>
         <p>Scan this QR code with the Doggie And Me app to add the game to the app!</p>
         <p>You can also access the gist we just created <span id="gisturl"></span> </p>
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -248,24 +248,15 @@ $('#deploy').click(function() {
 
   $.ajax({
     type: 'POST',
-    url: "https://api.github.com/gists",
-    data: JSON.stringify({
-      "description":"A Doggie And Me game",
-      "public":false,
-      "files":{
-        "game.coffee":{
-          "content":loadStorage()
-        }
-      }
-    }),
+    url: "/snippet/new",
+    data: loadStorage(), // TODO: figure out how to pass and read json?
     error: function(e) {
       console.log(e);
-      $('#qrcode').html('<h2>Oops! something went wrong</h2>')
+      $('#qrcode').html('<h2>Oops! something went wrong</h2>');
     },
     success: function(e) {
-      $('#qrcode').html('')
-      $('#qrcode').qrcode(e.files['game.coffee'].raw_url)
-      $('#gisturl').html('<a href="'+e.html_url+'"  target="_blank">here</a>')
+      $('#qrcode').html(e);
+      $('#gisturl').html('<a href="'+e.html_url+'"  target="_blank">here</a>');
     },
     dataType: "json",
     contentType: "application/json"

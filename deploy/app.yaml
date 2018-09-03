@@ -8,7 +8,7 @@ handlers:
   upload: static/index.html
 
 - url: /snippet/.*
-  script: snippets.app 
+  script: snippets.app
 
 - url: /(.+)/
   static_files: static/\1/index.html
