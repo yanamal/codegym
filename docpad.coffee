@@ -50,7 +50,7 @@ docpadConfig = {
         "/vendor/twitter-bootstrap/dist/js/bootstrap.min.js"
         "/scripts/script.js"
         # TODO: Do I need to include this globally to be able to use them in 1-2 places?..
-        "/scripts/palette.js" 
+        "/scripts/palette.js"
         "/vendor/jquery-qrcode/jquery.qrcode.min.js"
       ]
 
@@ -154,6 +154,7 @@ docpadConfig = {
   # =================================
   prompts: false
   checkVersion: false
+  outPath: 'deploy/static' 
 }
 
 
